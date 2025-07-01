@@ -1,0 +1,13 @@
+
+> codegrid-cielrose-threejs-slider-javascript@1.0.0 build
+> vite build
+
+[36mvite v6.3.5 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 8 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  1.22 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[2mdist/[22m[35massets/index-0bt3JkoS.css  [39m[1m[2m  1.26 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+[2mdist/[22m[36massets/index-BTRCTQfA.js   [39m[1m[2m468.60 kB[22m[1m[22m[2m │ gzip: 118.50 kB[22m
+[32m✓ built in 2.63s[39m

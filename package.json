@@ -1,0 +1,19 @@
+{
+  "name": "template-gallery",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "server"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "node server/index.js"
+  },
+  "devDependencies": {
+    "turbo": "^1.12.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

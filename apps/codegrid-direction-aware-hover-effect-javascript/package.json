@@ -1,0 +1,16 @@
+{
+  "name": "codegrid-direction-aware-hover-effect-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^6.3.3"
+  }
+}
