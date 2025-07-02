@@ -7,9 +7,9 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "start": "node server/index.js",
-    "generate-templates-json": "node server/generateTemplatesJson.js"
+    "build": "turbo run build ",
+    "start": "node server/generateTemplatesJson.js && node server/index.js",
+    "generate-templates-json": ""
   },
   "devDependencies": {
     "turbo": "^1.12.3"
