@@ -17,7 +17,7 @@ function initializeTemplates() {
   if (cachedTemplates === null) {
     cachedTemplates = getTemplates();
   }
-  console.log(cachedTemplates)
+
   return cachedTemplates;
 }
 
@@ -25,7 +25,7 @@ initializeTemplates().forEach(t => {
   const staticPath = path.join(appsDir, t.folder, t.serveFrom);
   app.use(`/${t.folder}`, express.static(staticPath));
 });
-console.log(initializeTemplates())
+
 app.use('/', express.static(path.join(__dirname, '../apps/homePage/dist')));
 
 app.get('/api/templates', (req, res) => {

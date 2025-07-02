@@ -171,7 +171,7 @@ const Home = () => {
       </div>
     );
   }
-{console.log(templates)}
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-screen sm:mx-10 md:mx-20">
