@@ -11,7 +11,7 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const limit = 8; // change to 12 if you want
+  const limit = 12; // change to 12 if you want
 
   useEffect(() => {
     fetch('./templates.json')
