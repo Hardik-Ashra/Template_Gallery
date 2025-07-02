@@ -6,22 +6,22 @@ const slides = [
   },
   {
     title: "Domed Sanctuary",
-    image: "/img2.jpg",
+    image: "img2.jpg",
     url: "/projects/domed-sanctuary",
   },
   {
     title: "Courtyard Retreat",
-    image: "/img3.jpg",
+    image: "img3.jpg",
     url: "/projects/courtyard-retreat",
   },
   {
     title: "Arched Corridor",
-    image: "/img4.jpg",
+    image: "img4.jpg",
     url: "/projects/arched-corridor",
   },
   {
     title: "Illuminated Grotto",
-    image: "/img5.jpg",
+    image: "img5.jpg",
     url: "/projects/illuminated-grotto",
   },
 ];

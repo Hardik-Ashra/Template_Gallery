@@ -1,51 +1,56 @@
-// import express from 'express'
-// import path from 'path'
-// import { fileURLToPath } from 'url'
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import getTemplates from './getTemplates.js';
+import fs from 'fs';
 
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
+const port = process.env.PORT || 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// const app = express()
+const app = express();
+const appsDir = path.resolve(__dirname, '../apps');
 
-// app.use('/aiden-brooks', express.static(path.join(__dirname, '../apps/aiden-brooks/dist')))
-// app.use('/elevate', express.static(path.join(__dirname, '../apps/elevate')))
-// app.use('/brutalist-portfolio', express.static(path.join(__dirname, '../apps/brutalist-portfolio')))
-//  app.use('/soren', express.static(path.join(__dirname, '../apps/soren/dist')));
-//   app.use('/velasco-solari', express.static(path.join(__dirname, '../apps/velasco-solari/dist')));
-//   app.use('/damien-tsarantos', express.static(path.join(__dirname, '../apps/damien-tsarantos')));
-//   app.use('/byteforge', express.static(path.join(__dirname, '../apps/byteforge')));
-// app.use('/', express.static(path.join(__dirname, '../apps/homePage/dist')))
+let cachedTemplates = null;
 
-// app.listen(3000, () => {
-//   console.log('Gallery running on http://localhost:3000')
-// })
+function initializeTemplates() {
+  if (cachedTemplates === null) {
+    cachedTemplates = getTemplates();
+  }
+  console.log(cachedTemplates)
+  return cachedTemplates;
+}
 
-import express from 'express'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import generateTemplates from './getTemplates.js'
-import fs from 'fs'
+initializeTemplates().forEach(t => {
+  const staticPath = path.join(appsDir, t.folder, t.serveFrom);
+  app.use(`/${t.folder}`, express.static(staticPath));
+});
+console.log(initializeTemplates())
+app.use('/', express.static(path.join(__dirname, '../apps/homePage/dist')));
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-const app = express()
-const appsDir = path.resolve(__dirname, '../apps')
-
-// dynamically add routes
-generateTemplates().forEach(t => {
-  const staticPath = path.join(appsDir, t.folder, t.serveFrom)
-  app.use(`/${t.folder}`, express.static(staticPath))
-})
-
-// homePage still served at /
-app.use('/', express.static(path.join(__dirname, '../apps/homePage/dist')))
-
-// API for listing
 app.get('/api/templates', (req, res) => {
-  res.json(generateTemplates())
-})
+  
+  const allTemplates = initializeTemplates();
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 12;
 
-app.listen(3000, () => {
-  console.log('Gallery running on http://localhost:3000')
-})
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+
+  const paginatedTemplates = allTemplates.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(allTemplates.length / limit);
+
+  res.json({
+    templates: paginatedTemplates,
+    currentPage: page,
+    limit: limit,
+    totalTemplates: allTemplates.length,
+    totalPages: totalPages,
+    hasMore: page < totalPages
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

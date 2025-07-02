@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const allImageSources = Array.from(
     { length: 35 },
-    (_, i) => `/img${i + 1}.jpeg`
+    (_, i) => `img${i + 1}.jpeg`
   );
 
   const getRandomImageSet = () => {
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const imgElement = img.querySelector("img");
 
               if (cycle === totalCycles - 1 && img === heroImage) {
-                imgElement.src = "/img5.jpeg";
+                imgElement.src = "img5.jpeg";
                 gsap.set(".hero-img img", { scale: 2 });
               } else {
                 imgElement.src = randomImages[index];

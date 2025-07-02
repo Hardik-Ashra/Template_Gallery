@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     camera.lookAt(0, 0, 0);
   }
 
-  new GLTFLoader().load("/shaker.glb", (gltf) => {
+  new GLTFLoader().load("shaker.glb", (gltf) => {
     model = gltf.scene;
 
     model.traverse((node) => {
