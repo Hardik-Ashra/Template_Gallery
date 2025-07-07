@@ -21,10 +21,25 @@ function initializeTemplates() {
   return cachedTemplates;
 }
 
+// dynamically serve all templates
 initializeTemplates().forEach(t => {
   const staticPath = path.join(appsDir, t.folder, t.serveFrom);
-  app.use(`/${t.folder}`, express.static(staticPath));
+  if (fs.existsSync(staticPath)) {
+    app.use(`/${t.folder}`, express.static(staticPath));
+    console.log(`Serving /${t.folder} from ${staticPath}`);
+  } else {
+    console.warn(`Warning: ${staticPath} does not exist. Skipping.`);
+  }
 });
+
+// serve homePage as root
+const homePagePath = path.join(__dirname, '../apps/homePage/dist');
+if (fs.existsSync(homePagePath)) {
+  app.use('/', express.static(homePagePath));
+  console.log(`Serving / from ${homePagePath}`);
+} else {
+  console.warn(`Warning: ${homePagePath} does not exist. Root page may fail.`);
+}
 
 app.use('/', express.static(path.join(__dirname, '../apps/homePage/dist')));
 

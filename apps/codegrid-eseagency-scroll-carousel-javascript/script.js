@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newSlide.className = "slide";
     newSlide.innerHTML = `
         <div class="slide-img">
-            <img src="/slide-img-${index + 1}.jpg" alt="" />
+            <img src="slide-img-${index + 1}.jpg" alt="" />
         </div>
         <div class="slide-copy">
             <div class="slide-tag">

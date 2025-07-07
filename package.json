@@ -3,18 +3,22 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "server"
+    "server",
+    "apps/next/*"
   ],
   "scripts": {
     "dev": "turbo run dev",
+    "build:templates": " turbo run build --filter=apps/next/*",
     "build": "turbo run build ",
-    "start": "node server/generateTemplatesJson.js && node server/index.js",
-    "generate-templates-json": ""
+    "start": "node server/generateTemplatesJson.js && node server/index.js"
   },
   "devDependencies": {
     "turbo": "^1.12.3"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "next": "15.1.6",
+    "express": "^5.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

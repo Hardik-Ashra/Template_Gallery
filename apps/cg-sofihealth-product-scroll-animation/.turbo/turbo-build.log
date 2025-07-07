@@ -4,16 +4,16 @@
 
 [36mvite v6.3.5 [32mbuilding for production...[36m[39m
 transforming...
-[33mscript.js (92:34): "LinearEncoding" is not exported by "../../node_modules/three/build/three.module.js", imported by "script.js".[39m
+[33mscript.js (92:34): "LinearEncoding" is not exported by "node_modules/three/build/three.module.js", imported by "script.js".[39m
 [32m✓[39m 15 modules transformed.
 rendering chunks...
 computing gzip size...
-[2mdist/[22m[32mindex.html                 [39m[1m[2m  2.16 kB[22m[1m[22m[2m │ gzip:   0.78 kB[22m
-[33m
-(!) Some chunks are larger than 500 kB after minification. Consider:
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  2.23 kB[22m[1m[22m[2m │ gzip:   0.79 kB[22m
 [2mdist/[22m[35massets/index-C5XhzPwr.css  [39m[1m[2m  2.54 kB[22m[1m[22m[2m │ gzip:   0.85 kB[22m
 [2mdist/[22m[36massets/index-D3lZj-pQ.js   [39m[1m[33m709.44 kB[39m[22m[2m │ gzip: 198.91 kB[22m
-[32m✓ built in 5.56s[39m
+[33m
+[32m✓ built in 5.05s[39m
+(!) Some chunks are larger than 500 kB after minification. Consider:
 - Using dynamic import() to code-split the application
 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
