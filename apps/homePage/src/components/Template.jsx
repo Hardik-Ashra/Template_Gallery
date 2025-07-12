@@ -33,7 +33,7 @@ const TemplateCard = memo(forwardRef(({ template }, ref) => {
       </div>
 
       {/* Action Buttons Section */}
-      <div className="p-5 flex flex-wrap justify-between items-center bg-gray-50 dark:bg-gray-900 flex-grow gap-3"> {/* Added gap-3 for spacing between buttons */}
+      <div className="p-5 flex flex-wrap justify-center items-center bg-gray-50 dark:bg-gray-900 flex-grow gap-2"> {/* Added gap-3 for spacing between buttons */}
         {/* Live Demo Button */}
         {template.url && ( // Only render if template.url exists
           <a
@@ -44,7 +44,7 @@ const TemplateCard = memo(forwardRef(({ template }, ref) => {
             title="Open Live Demo"
           >
             <ExternalLink size={16} className="mr-2" />
-            Live Demo
+           
           </a>
         )}
 
@@ -58,7 +58,7 @@ const TemplateCard = memo(forwardRef(({ template }, ref) => {
             title="Explore Project Files on GitHub"
           >
             <FolderOpen size={16} className="mr-2" />
-            Code
+            
           </a>
         )}
 
@@ -72,7 +72,7 @@ const TemplateCard = memo(forwardRef(({ template }, ref) => {
             title="Download Template (ZIP)"
           >
             <Download size={16} className="mr-2" />
-            Download
+           
           </a>
         )}
       </div>

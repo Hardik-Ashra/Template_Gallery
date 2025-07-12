@@ -25,7 +25,7 @@ export default function Home() {
         </nav>
         <section className="hero">
           <div className="hero-img">
-            <img src="/hero.jpg" alt="" />
+            <img src="hero.jpg" alt="" />
           </div>
 
           <div className="header">
@@ -51,7 +51,7 @@ export default function Home() {
         </section>
 
         <section className="about-img">
-          <img src="/about.jpg" alt="" />
+          <img src="about.jpg" alt="" />
         </section>
 
         <section className="story">
